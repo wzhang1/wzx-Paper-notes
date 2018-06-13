@@ -52,3 +52,12 @@ Local Refinement Network (LN)
 
 
 LN的结构如图所示，分别对应上采样4倍和8倍任务，分析了三个有不同层数的全卷积网络框架。在每次卷积操作时都对图像做padding保持大小一致，卷积后输入到ReLU。全称没有使用池化，并且滑动步长为1，因此网络学习到了平移不变的非线性，如图2(c)，LN通过由GN得到的平滑和细节层，加强了人脸特定的局部特征。此外，重构图的局部数据分布与高分辨率对应图像块的数据分布相吻合（例如平滑的脸颊区域和尖锐的脸部轮廓）。
+
+[SRGAN](https://cjmcv.github.io/deeplearning-paper-notes/fgan/fsr/2016/12/26/SRGAN.html)
+----
+
+论文概述：
+
+本论文中，使用生成对抗网络GAN用于超分辨率重构。提出了一种感知损失（perceptual loss），包含有对抗损失和内容损失（content loss）。对抗损失基于鉴别器使生成图像更接近真实图像；内容损失由直观相似性（perceptual similarity）驱动而不是像素域上的相似性。文中以深度残差网络作为生成模型，以VGG网络作为鉴别器，可以从高度下采样的图像中恢复图像真实的纹理信息。大量的mean-opinion-score（MOS，平均主观意见分）测试表明使用SRGAN在视觉质量（perceptual quality）上有巨大意义。
+
+  对于大的上采样因子，SR通常存在纹理细节缺失的问题，如图中SRResNet的PSNR评分很高，但从服饰/叶子等可以看出，也存在细节缺失的问题。而文中提出的算法SRGAN虽然PSNR分数没有SRResNet的高，但可生成很多细节信息，使在人类视觉感官上图像质量更高。注：论中算法评价标准为MOS，而不是PSNR或SSIM。
