@@ -189,3 +189,37 @@ SPP叫空间金字塔池化，主要是为了处理RCNN中需要将候选框的�
 PS:
 
 空间金字塔池化，设金字塔有三层，分别对应1x1、2x2和4x4的池化，设输入特征图通道数为256，则1x1池化得到1x1x256d向量，2x2池化得到2x2x256d，4x4池化得到4x4x256d，则最终的特征向量长度为三个数累加，维度固定，与输入特征图大小无关。
+
+[Fast-RCNN（ICCV，2015）](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/01/04/FRCNN.html)
+----
+参考资料
+
+[图解Fast RCNN](https://www.bilibili.com/video/av22822657/?p=44)
+回顾RCNN
+
+在RCNN中，可以看到还是存在很多问题。其中最主要的就是训练过程复杂：
+
+先预训练
+
+再利用selective search产生的region proposals进行微调CNN网络
+
+再用CNN提取到的region proposal的固定长度的特征向量来训练一组SVM
+
+最后还要训练一组BBox回归器，还是需要用CNN来提取特征
+
+其中2，3，4中样本数据的构造是不一样的，所以还要分别构造各自的数据集。训练过程中反复用到CNN（要么就用额外的存储来保存特征向量，代价很大）。
+
+除了训练，测试过程也比较慢，因为需要将产生的2k个region proposals依次通过CNN来提取特征（没有共享计算导致的结果）。
+
+当然这些都不能否定RCNN在图像检测方面的突破。下面开始进入Fast R-CNN.
+
+改进
+
+很大程度上实现了end to end（除了region proposals的产生还是用的selective search）。
+
+不再是将region proposals依次通过CNN，而是直接输入原图，来提取特征（这样一张图只会CNN一次）。
+
+网络同时输出类别判断以及bbox回归建议（即两个同级输出），不再分开训练SVM和回归器。
+
+![网络结构](https://pic4.zhimg.com/80/v2-d825cbb7a7ab0d15c559c2d595b6a4a2_hd.jpg)
+![具体网络结构]（https://pic3.zhimg.com/80/v2-1ef48d2473e783a4bdc7d66ee5f8a083_hd.jpg）
