@@ -193,8 +193,11 @@ PS:
 [Fast-RCNN（ICCV，2015）](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/01/04/FRCNN.html)
 ----
 参考资料
+
 [Fast Rcnn git hub 代码](https://github.com/yhenon/keras-frcnn)
+
 [图解Fast RCNN](https://www.bilibili.com/video/av22822657/?p=44)
+
 回顾RCNN
 
 在RCNN中，可以看到还是存在很多问题。其中最主要的就是训练过程复杂：
@@ -230,9 +233,13 @@ PS:
 参考资料
 
 [keras版faster-rcnn算法详解](https://zhuanlan.zhihu.com/p/28585873)
+
 [faster -rcnn 代码详解](https://zhuanlan.zhihu.com/p/31530023)
+
 [目标检测——从RCNN到Faster RCNN 串烧](https://blog.csdn.net/xyy19920105/article/details/50817725)
+
 经过R-CNN和Fast RCNN的积淀，Ross B. Girshick在2016年提出了新的Faster R-CNN，在结构上，Faster RCNN已经将特征抽取(feature extraction)，proposal提取，bounding box regression(rect refine)，classification都整合在了一个网络中，使得综合性能有较大提高，在检测速度方面尤为明显。
+
 ![](https://pic1.zhimg.com/80/v2-e64a99b38f411c337f538eb5f093bdf3_hd.jpg)
 
 ![Faster RCNN训练步骤](https://pic1.zhimg.com/80/v2-ed3148b3b8bc3fbfc433c7af31fe67d5_hd.jpg)
