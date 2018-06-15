@@ -230,7 +230,8 @@ PS:
 参考资料
 
 [keras版faster-rcnn算法详解](https://zhuanlan.zhihu.com/p/28585873)
-
+[faster -rcnn 代码详解](https://zhuanlan.zhihu.com/p/31530023)
+[目标检测——从RCNN到Faster RCNN 串烧](https://blog.csdn.net/xyy19920105/article/details/50817725)
 经过R-CNN和Fast RCNN的积淀，Ross B. Girshick在2016年提出了新的Faster R-CNN，在结构上，Faster RCNN已经将特征抽取(feature extraction)，proposal提取，bounding box regression(rect refine)，classification都整合在了一个网络中，使得综合性能有较大提高，在检测速度方面尤为明显。
 ![](https://pic1.zhimg.com/80/v2-e64a99b38f411c337f538eb5f093bdf3_hd.jpg)
 
