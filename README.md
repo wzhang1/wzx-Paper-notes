@@ -225,7 +225,7 @@ PS:
 
 ![具体网络结构](https://pic3.zhimg.com/80/v2-1ef48d2473e783a4bdc7d66ee5f8a083_hd.jpg)
 
-FASTER RCNN
+[FASTER RCNN](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/01/04/FRCNN.html)
 ----
 参考资料
 [keras版faster-rcnn算法详解](https://zhuanlan.zhihu.com/p/28585873)
