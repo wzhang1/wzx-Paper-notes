@@ -101,8 +101,11 @@ RCNN--SPPNET--Fast-RCNN--Faster-RCNN
 ![](https://pic2.zhimg.com/v2-0c98fb30a9e589fa164d99c50e6ca711_r.jpg)
 
 参考资料:
+
 [图解CNN论文：尝试用最少的数学读懂深度学习论文](https://www.bilibili.com/video/av22822657/)
+
 [RCNN- 将CNN引入目标检测的开山之作](https://zhuanlan.zhihu.com/p/23006190)
+
 RCNN (论文：Rich feature hierarchies for accurate object detection and semantic segmentation) 是将CNN方法引入目标检测领域， 大大提高了目标检测效果，可以说改变了目标检测领域的主要研究思路， 紧随其后的系列文章：（ RCNN）,Fast RCNN, Faster RCNN 代表该领域当前最高水准。
 
 作者：周新一
