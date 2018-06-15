@@ -228,4 +228,13 @@ PS:
 [FASTER RCNN](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/01/06/FRCNN2.html)
 ----
 参考资料
+
 [keras版faster-rcnn算法详解](https://zhuanlan.zhihu.com/p/28585873)
+
+经过R-CNN和Fast RCNN的积淀，Ross B. Girshick在2016年提出了新的Faster R-CNN，在结构上，Faster RCNN已经将特征抽取(feature extraction)，proposal提取，bounding box regression(rect refine)，classification都整合在了一个网络中，使得综合性能有较大提高，在检测速度方面尤为明显。
+![](https://pic1.zhimg.com/80/v2-e64a99b38f411c337f538eb5f093bdf3_hd.jpg)
+
+![Faster RCNN训练步骤](https://pic1.zhimg.com/80/v2-ed3148b3b8bc3fbfc433c7af31fe67d5_hd.jpg)
+
+总结
+主要是提出了RPN，代替了Fast-RCNN上的使用的selective-search，其余结构未变。而RPN中设定3个尺度和3个形状组成9个anchors，以滑动窗口的方式搜索目标。其中滑动窗口以n x n卷积实现，卷积输出多个特征图，即使每个滑动窗口得到一个多维向量。然后再用1x1x18和1x1x36卷积去扫描，分别得到对应每个位置上9个anchor的类别和边框的预测。
