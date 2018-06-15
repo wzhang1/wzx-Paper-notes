@@ -71,7 +71,7 @@ LN的结构如图所示，分别对应上采样4倍和8倍任务，分析了三�
   
 从ImageNet中随机抽取35w样本，通过双立方插值进行4倍下采样。从不同的16张图像上随机裁剪96x96的图像块作为一个mini-batch。基于MSE优化的SRResNet作为GAN的生成器初始化预训练模型以避免陷入局部最优，交替训练。在测试的时候将batch-normalization的更新关掉，使输出仅取决与输入。
 
-SimGAN(https://cjmcv.github.io/deeplearning-paper-notes/fgan/2017/01/08/SimGAN.html)
+[SimGAN](https://cjmcv.github.io/deeplearning-paper-notes/fgan/2017/01/08/SimGAN.html)
 ----
 
 论文算法概述
@@ -89,3 +89,60 @@ S+U学习的目的是使用无标签真实图像集去训练精炼网络R去提�
 
 对抗训练的另一个问题是鉴别器只关注最后的精炼图像结果进行训练，这样会导致有两个问题，一个是分散了对抗训练，二是精炼器会再次引入鉴别器曾经关注过而当前没关注的人工合成信息。在训练过程中的任何时刻从精炼器中得到的精炼图像，对于鉴别器来说都属于‘假’的一类，所以鉴别器应可以把这些图像都分到‘假’一类，而不仅只针对当前生成的mini-batch个精炼图像。通过简单修改Algorithm1，使采用精炼器的历史情况来更新鉴别器。令B为由以往精炼器生成的精炼图像集的缓存，b为mini-batch大小，在鉴别器训练的每次迭代中，通过从当前精炼器中采样b/2的图像来计算鉴别器的损失函数，然后从缓存中采样额外的b/2的图像来更新参数。保持缓存B大小固定，然后在每次迭代中随机使用新生成的精炼图像去替换缓存中b/2个图像，如图4。
 ![](https://cjmcv.github.io/deeplearning-paper-notes/images/pdGan/simgan6.png)
+
+[RCNN（CVPR，2014）](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/01/02/RCNN.html)
+----
+作者：RBG（Ross B. Girshick）大神，不仅学术牛，工程也牛，代码健壮，文档详细，clone下来就能跑。
+RCNN脉络
+
+RCNN--SPPNET--Fast-RCNN--Faster-RCNN
+
+
+![](https://pic2.zhimg.com/v2-0c98fb30a9e589fa164d99c50e6ca711_r.jpg)
+
+参考资料:
+[图解CNN论文：尝试用最少的数学读懂深度学习论文](https://www.bilibili.com/video/av22822657/)
+
+RCNN (论文：Rich feature hierarchies for accurate object detection and semantic segmentation) 是将CNN方法引入目标检测领域， 大大提高了目标检测效果，可以说改变了目标检测领域的主要研究思路， 紧随其后的系列文章：（ RCNN）,Fast RCNN, Faster RCNN 代表该领域当前最高水准。
+
+作者：周新一
+链接：https://www.zhihu.com/question/35887527/answer/77490432
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+RCNN的一个出发点在文章第一句话：features matter。传统的物体检测使用hand-engineered的特征。如HOG特征可以表示为filter(convolutional)+gating(nonlinear)+pooling+normalization(LRN)，很多传统特征可以用图片经过CNN后得到的feature map表示。并且，由于卷积操作具有平移不变形，feature map里不仅包含了物体的what信息，还包含着物体的where信息。因此可以利用CNN特征来代替传统特征，对特征用SVM得到分类结果，同时可以对特征作回归得到更精确的位置。
+
+SPP首先解决传统的CNN输入需要图片长宽固定的问题（这个问题在基于区域的输入上更为明显），把原来的“从原图上截取区域”转化为“从feature map上截取区域”，有了这个操作，同一张图片上不同区域的物体检测可以共享同一个原图特征。然而SPP的区域特征提取是在卷积层参数固定后才进行的，并且要额外进行SVM分类和区域框回归。
+
+Fast RCNN解决了两个技术问题：1）如何让区域的选择可导（提出ROI Pooling操作，区域特征选择像Max Pooling一样可导），2）如何让SGD高效（把同一张图的不同区域放在同一个batch里），并且把原来的区域框回归作为一个Multitask接在网络里（Smooth L1 norm），这样除了区域推荐外的全部任务可以在一个网络完成。Faster RCNN把区域推荐也放在网络里完成（RPN）。这样整个框架都可以在一个网络里运行。
+
+然而，Faster RCNN的训练为了保证卷积特征一致性需要分4步训练。RBG在Tutorial上表示已有让区域推荐可导（类似Spatial Transform Network中的sampler操作）的joint training。
+
+论文算法概述
+
+   整个算法过程包含三个步骤：a、输入图像，搜索生成类别独立的物体候选框； b、使用大的CNN网络对各候选框提取固定长度的特征向量；c、利用线性SVM对特征向量进行分类识别。
+   
+RCNN算法分为4个步骤 
+
+候选区域生成： 一张图像生成1K~2K个候选区域 （采用Selective Search 方法）
+
+特征提取： 对每个候选区域，使用深度卷积网络提取特征 （CNN） 
+
+类别判断： 特征送入每一类的SVM 分类器，判别是否属于该类 
+
+位置精修： 使用回归器精细修正候选框位置 
+
+   
+  ![](https://cjmcv.github.io/deeplearning-paper-notes/images/pdDetect/rcnn1.jpg)
+  
+存在问题
+  
+训练过程繁琐：包含基于物体候选框使用log损失微调卷积网络；基于调优后的卷积特征训练SVM；训练bounding box回归器（参考DPM）；
+训练耗时，占用磁盘空间大。
+每个候选框需要进行整个前向CNN计算导致测试速度慢：
+
+总结
+
+算法分三步，1）selective；2）将各候选框缩放填充至固定大小，用一个CNN对分别提取特定长度的特征向量；3）SVM对向量分类。主要短板在第2步，每个框都要重复输入CNN进行独立的计算。
+  
+  
