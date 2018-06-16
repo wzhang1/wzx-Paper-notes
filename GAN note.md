@@ -73,7 +73,7 @@ cGAN:
 
 ![](https://pic2.zhimg.com/80/v2-501aaae4ef82ee9fb32631ff0cd7f4d3_hd.jpg)
 
-[PG-GAN]:(https://openreview.net/pdf?id=ByS1VpgRZ)
+[PG-GAN](https://openreview.net/pdf?id=ByS1VpgRZ)
 ----
 
 这篇论文提出了一种新的、基于投影的方法，将有条件的信息（conditional information）纳入 GAN 的判别器。这种方法与当前的大多数条件 GAN（cGAN）的框架不同，它是通过将（嵌入的）条件向量连接到特征向量来使用条件信息。通过这样的修改，研究者在 ImageNet 的 class conditional 图像生成质量比当前最优结果显著提高，并且这是只通过一对 discriminator 和 generator 实现的。该研究还将应用扩展到超分辨率，并成功地生成了高质量的超分辨率图像。代码、生成的图像和预训练的模型可用。
