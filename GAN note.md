@@ -8,6 +8,8 @@
 
 [GAN 进展跟踪 10 大论文，不容错过（附下载）](https://zhuanlan.zhihu.com/p/34132477)
 
+[pytorch-CycleGAN-and-pix2pix代码](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
+
 
 Abstract
 
