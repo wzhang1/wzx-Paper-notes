@@ -14,7 +14,9 @@
 [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661.pdf )
 ----
 
-![各种GAN的结构图]（https://img-blog.csdn.net/20171104173802108?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU3VwZXJZUl8yMTA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center）
+![各种GAN的结构图](https://github.com/greenfishflying/tensorflow-generative-model-collections/raw/master/assets/etc/GAN_structure.png)
+
+
 Abstract
 
  提出通过一个对抗过程来评估生成模型，在对抗的过程中同时训练两个网络，一个是生成模型G用于获取数据的分布情况，另一个是区分模型D用于判断一个样本是来自训练集还是由模型G生成。训练中D目标是最大化地将原始训练样本和由G生成的样本准确区分，即二分类问题，最大化log D(x)；G则要最大化模型D出现评估错误的概率log(1 – D(G(z)))，而GAN模型没有损失函数，优化过程是一个“二元极小极大博弈（minimax two-player game）”问题。则最后达到最优解时，G可以再现训练样本的分布，而D的判断准确率为50%。
