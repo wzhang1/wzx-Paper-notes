@@ -44,6 +44,18 @@ Advantages and disadvantages：
 
 效率提升：通过更好的协调G和D或者在训练中采用更好的分布去采样z能够对训练起到加速作用。
 
+GAN的其他变体：
+
+cGAN:
+
+为了提高训练的稳定性，另一个很自然的角度就是改变学习方法。把纯无监督的 GAN 变成半监督或者有监督的。这便可以为 GAN 的训练加上一点点束缚，或者说加上一点点目标.中提出的 Conditional Generative Adversarial Nets （CGAN）便是十分直接的模型改变，在生成模型（G）和判别模型（D）的建模中均引入 conditional variable y，这个 y 就是数据的一种 label。也因此，CGAN 可以看做把无监督的 GAN 变成有监督的模型的一种改进。这个简单直接的改进被证明非常有效，并广泛用于后续的相关工作中。
+
+![](https://pic3.zhimg.com/80/3b6c35178f34a004368770cda3ea41cd_hd.jpg)
+
+ LAPGAN:
+ 
+ 将 GAN 的学习过程变成了 sequential “序列式” 的。具体上，LAPGAN 采用了 Laplacian Pyramid 实现了 “序列化” ，也因此起名做 LAPGAN 。
+
 [GLN（2016）](https://cjmcv.github.io/deeplearning-paper-notes/fsr/fgan/2016/12/15/GLN.html)
 ----
 
