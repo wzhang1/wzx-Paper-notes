@@ -11,7 +11,7 @@
 4.王子是如何打败巨龙（你的方法简介）<br>
 5.从此王子和公主幸福的生活在了一起（解决了问题）<br>
 
-[GAN 论文笔记](./GAN note)
+[GAN 论文笔记](./GAN%20note.md)
 
 [RCNN（CVPR，2014）](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/01/02/RCNN.html)
 ----
