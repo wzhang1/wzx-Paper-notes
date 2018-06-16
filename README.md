@@ -16,6 +16,8 @@
 
 ![各种GAN的结构图](https://github.com/greenfishflying/tensorflow-generative-model-collections/raw/master/assets/etc/GAN_structure.png)
 
+[千奇百怪的GAN变体，都在这里了](https://zhuanlan.zhihu.com/p/26491601)
+
 
 Abstract
 
