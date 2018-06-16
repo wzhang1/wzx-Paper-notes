@@ -34,19 +34,54 @@ Advantages and disadvantages：
 
 效率提升：通过更好的协调G和D或者在训练中采用更好的分布去采样z能够对训练起到加速作用。
 
-GAN的其他变体：
+
 
 cGAN:
+----
+
 
 为了提高训练的稳定性，另一个很自然的角度就是改变学习方法。把纯无监督的 GAN 变成半监督或者有监督的。这便可以为 GAN 的训练加上一点点束缚，或者说加上一点点目标.中提出的 Conditional Generative Adversarial Nets （CGAN）便是十分直接的模型改变，在生成模型（G）和判别模型（D）的建模中均引入 conditional variable y，这个 y 就是数据的一种 label。也因此，CGAN 可以看做把无监督的 GAN 变成有监督的模型的一种改进。这个简单直接的改进被证明非常有效，并广泛用于后续的相关工作中。
 
-PG-GAN:
+[cGANs with Projection Discriminator](https://link.zhihu.com/?target=https%3A//openreview.net/pdf%3Fid%3DByS1VpgRZ)
+----
 
-[论文](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1710.10196.pdf)
+[代码](https://github.com/pfnet-research/sngan_projection)
+
+这篇论文提出了一种新的、基于投影的方法，将有条件的信息（conditional information）纳入 GAN 的判别器。这种方法与当前的大多数条件 GAN（cGAN）的框架不同，它是通过将（嵌入的）条件向量连接到特征向量来使用条件信息。通过这样的修改，研究者在 ImageNet 的 class conditional 图像生成质量比当前最优结果显著提高，并且这是只通过一对 discriminator 和 generator 实现的。该研究还将应用扩展到超分辨率，并成功地生成了高质量的超分辨率图像。代码、生成的图像和预训练的模型可用。
+
+![](https://pic4.zhimg.com/80/v2-0a258e964f0e06227e8d294d99e7c6bd_hd.jpg)
+
+[High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](https://tcwang0509.github.io/pix2pixHD/)
+----
+
+研究者提出一种多尺度的生成器和判别器架构，结合新的对抗学习目标函数。实验结果表明，条件 GAN 能够合成高分辨率、照片级逼真的图像，不需要任何手工损失或预训练的网络。
+
+不仅如此，作者还提出了一种方法，让用户能够交互式地编辑物体的外观，大大丰富了生成的数据类型。例如，在下面的视频中，你可以发现用户能够选择更换街景中车辆的颜色和型号，给街景图增加一些树木，或者改变街道类型（例如将水泥路变成十字路）。类似地，利用语义标注图合成人脸时，给定语义标注的人脸图像，你可以选择组合人的五官，调整大小肤色，添加胡子等。
+
+作者在文中指出，他们的方法可以扩展到其他领域，尤其是医疗图像这样缺乏预训练网络的领域。
+
+![](https://pic1.zhimg.com/80/v2-0b181283559f38a23c2f9f8604918c34_hd.jpg)
+
+[ StackGAN++: Realistic Image Synthesis with Stacked Generative Adversarial Networks](https://arxiv.org/pdf/1710.10916.pdf)
+----
+
+尽管生成的敌对网络 (GANs) 在各种任务中已经取得了显著的成功，但它们仍然在生成高质量图像方面面临挑战。本文提出了一种堆叠的生成对抗网络(StackGAN)，目标是生成高分辨率的现实图像。
+
+首先，本文提出了一个包含两阶段的生成对抗网络架构 stack GAN-v1 用于文本 - 图像合成。根据给定的文字描述，GAN 在第一阶段描绘出了物体的原始形状和颜色，产生了低分辨率的图像。在第二阶段，GAN 将第一阶段的低分辨率图像和文字描述作为输入，并以逼真的细节生成高分辨率的图像。
+
+其次，提出了一种多阶段的生成对抗性网络架构，即 StackGAN-v2，用于有条件和无条件的生成任务。提出的 StackGAN-v2 由多个树状结构的生成器和判别器组成。树的不同分支可以生成对应于同一场景的多个尺寸的图像。通过对多个分布的联合逼近，StackGAN-v2 显示了比 StackGAN -v1 更稳定的训练结果。大量的实验证明，在生成高清图像时，文章提出的堆叠的生成对抗网络比其他现阶段表现优异的算法更具优势。文章中提出的模型如图 1 所示：
+
+![](https://pic2.zhimg.com/80/v2-501aaae4ef82ee9fb32631ff0cd7f4d3_hd.jpg)
+
+[PG-GAN]:(https://openreview.net/pdf?id=ByS1VpgRZ)
+----
+
+这篇论文提出了一种新的、基于投影的方法，将有条件的信息（conditional information）纳入 GAN 的判别器。这种方法与当前的大多数条件 GAN（cGAN）的框架不同，它是通过将（嵌入的）条件向量连接到特征向量来使用条件信息。通过这样的修改，研究者在 ImageNet 的 class conditional 图像生成质量比当前最优结果显著提高，并且这是只通过一对 discriminator 和 generator 实现的。该研究还将应用扩展到超分辨率，并成功地生成了高质量的超分辨率图像。代码、生成的图像和预训练的模型可用。
 
 [代码](https://github.com/tkarras/progressive_growing_of_gans)
 
 来自 NVIDIA Research 的 GAN 论文，提出以一种渐进增大（progressive growing）的方式训练 GAN，通过使用逐渐增大的 GAN 网络（称为 PG-GAN）和精心处理的 CelebA-HQ 数据集，实现了效果令人惊叹的生成图像。作者表示，这种方式不仅稳定了训练，GAN 生成的图像也是迄今为止质量最好的。
+
 它的关键想法是渐进地增大生成器和鉴别器：从低分辨率开始，随着训练的进展，添加新的层对越来越精细的细节进行建模。“Progressive Growing” 指的是先训练 4x4 的网络，然后训练 8x8，不断增大，最终达到 1024x1024。这既加快了训练速度，又大大稳定了训练速度，并且生成的图像质量非常高，例如 1024×1024 的 CelebA 图像。
 
 ![](https://pic3.zhimg.com/80/v2-54cfed8187b1cf5a02c086eae17670c2_hd.jpg)
@@ -55,8 +90,26 @@ PG-GAN:
 ![](https://pic3.zhimg.com/80/3b6c35178f34a004368770cda3ea41cd_hd.jpg)
 
  LAPGAN:
+ ----
  
  将 GAN 的学习过程变成了 sequential “序列式” 的。具体上，LAPGAN 采用了 Laplacian Pyramid 实现了 “序列化” ，也因此起名做 LAPGAN 。
+ 
+ [SN-GAN](https://openreview.net/pdf?id=B1QRgziT-)
+ ----
+ 
+ Goodfellow表示，虽然GAN十分擅长于生成逼真的图像，但仅仅限于单一类型，比如一种专门生成人脸的GAN，或者一种专门生成建筑物的GAN，要用一个GAN生成ImageNet全部1000种类的图像是不可能的。但是，这篇ICLR论文做到了。
+ 
+
+摘要：
+
+生成对抗网络的研究面临的挑战之一是其训练的不稳定性。在本文中，我们提出了一种叫做“谱归一化”（spectral normalization）的新的权重归一化（weight normalization）技术，来稳定判别器的训练。这种新归一化技术计算轻巧，易于并入现有的部署当中。我们在CIFAR10，STL-10和ILSVRC2012数据集上测试了谱归一化的功效，通过实验证实了相对于那些使用此前提出的训练稳定技术训练的GAN，谱归一化GAN（SN-GAN）能够生成质量相同乃至更好的图像。
+ 
+ 简单说，论文提出了一种新的权重归一化方法，用于稳定判别器的训练。作者在论文中写道，他们的归一化方法需要调整的超参数只要一个，就是 Lipschitz 常数，而且即使不调整这个超参数，也能获得满意的性能。此外，算法实现简单，额外的计算成本很小。
+ 
+ ![](https://pic3.zhimg.com/80/v2-96087d2c2bf93447c3760c1348bdd728_hd.jpg)
+ 
+ SN-GAN是所有方法中唯一训练成功了的，据我们所知，这也是首次用单对判别器和生成器从ImageNet数据集生成不错图像的尝试”。
+ 
 
 [GLN（2016）](https://cjmcv.github.io/deeplearning-paper-notes/fsr/fgan/2016/12/15/GLN.html)
 ----
