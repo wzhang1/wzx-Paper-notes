@@ -5,7 +5,9 @@
 ![各种GAN的结构图](https://github.com/greenfishflying/tensorflow-generative-model-collections/raw/master/assets/etc/GAN_structure.png)
 
 [千奇百怪的GAN变体，都在这里了](https://zhuanlan.zhihu.com/p/26491601)
+
 [GAN 进展跟踪 10 大论文，不容错过（附下载）](https://zhuanlan.zhihu.com/p/34132477)
+
 
 Abstract
 
@@ -41,10 +43,12 @@ cGAN:
 PG-GAN:
 
 [论文](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1710.10196.pdf)
+
 [代码](https://github.com/tkarras/progressive_growing_of_gans)
 
 来自 NVIDIA Research 的 GAN 论文，提出以一种渐进增大（progressive growing）的方式训练 GAN，通过使用逐渐增大的 GAN 网络（称为 PG-GAN）和精心处理的 CelebA-HQ 数据集，实现了效果令人惊叹的生成图像。作者表示，这种方式不仅稳定了训练，GAN 生成的图像也是迄今为止质量最好的。
 它的关键想法是渐进地增大生成器和鉴别器：从低分辨率开始，随着训练的进展，添加新的层对越来越精细的细节进行建模。“Progressive Growing” 指的是先训练 4x4 的网络，然后训练 8x8，不断增大，最终达到 1024x1024。这既加快了训练速度，又大大稳定了训练速度，并且生成的图像质量非常高，例如 1024×1024 的 CelebA 图像。
+
 ![](https://pic3.zhimg.com/80/v2-54cfed8187b1cf5a02c086eae17670c2_hd.jpg)
 
 
