@@ -236,3 +236,19 @@ Wasserstein GAN（下面简称WGAN）成功地做到了以下爆炸性的几点�
 总的来说
 
 GAN中交叉熵（JS散度）不适合衡量生成数据分布和真实数据分布的距离，如果通过优化JS散度训练GAN会导致找不到正确的优化目标，所以，WGAN提出使用wassertein距离作为优化方式训练GAN.虽然理论证明很漂亮，但是实际上训练起来，以及生成结果并没有期待的那么好。
+
+[用于PyTorch中无监督异常检测的WGAN-GP](https://github.com/trigrass2/wgan-gp-anomaly)
+----
+
+[参考资料:不仅仅生成图片，用GAN做无监督的异常检测](https://zhuanlan.zhihu.com/p/32505627)
+
+这篇文章要讲的不是用GAN来做图片的生成，而是一个非常有意思的应用方向-把GAN应用于做异常检测。
+
+![](https://pic4.zhimg.com/80/v2-3afb9ef54ee08b8983abcec88975ff17_hd.jpg)
+
+![](https://pic1.zhimg.com/80/v2-592e8ddc687eda45212d8ddf70853aeb_hd.jpg)
+
+这个框架图基本已经解释了这篇paper的方法，其实就是用正常的图片去训练GAN，然后通过GAN生成与异常图对应的正常图来对比找到异常。
+
+paper中使用的GAN的结构图，其实在这篇paper里面使用的GAN就是普通的DCGAN，从一个噪声向量Z学习生成一张图片。我们可以看到正常的眼部OCT图的纹理是一种比较正常的过渡，但是异常的OCT图明显纹理产生了变化。DCGAN只用正常的OCT图像训练，这样DCGAN就只能从噪声生成正常纹理的OCT图像。当输入一个异常图时，通过比较DCGAN的生成图和异常图的差异去更新输入的噪声Z，从而生成一个与异常图尽可能相似的正常图。通过这样的方式，可以认为重建出了异常区域的理想的正常情况，这样两张图一对比不仅仅可以认定异常情况，同时还可以找到异常区域。
+![](https://pic4.zhimg.com/80/v2-9dbf3f09ea6ba47de03569ad1ad0bd6e_hd.jpg)
