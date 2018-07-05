@@ -153,6 +153,7 @@ PS:
 ![Faster RCNN训练步骤](https://pic1.zhimg.com/80/v2-ed3148b3b8bc3fbfc433c7af31fe67d5_hd.jpg)
 
 总结
+
 主要是提出了RPN，代替了Fast-RCNN上的使用的selective-search，其余结构未变。而RPN中设定3个尺度和3个形状组成9个anchors，以滑动窗口的方式搜索目标。其中滑动窗口以n x n卷积实现，卷积输出多个特征图，即使每个滑动窗口得到一个多维向量。然后再用1x1x18和1x1x36卷积去扫描，分别得到对应每个位置上9个anchor的类别和边框的预测。
 
 [A-Fast-RCNN（CVPR, 2017）](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/fgan/2017/04/30/AFastRCNN.html)
@@ -178,3 +179,38 @@ Experiments
 YOLO
 ----
 
+
+[SCNN](https://blog.csdn.net/u011974639/article/details/79580798)
+----
+
+语义分割--(SCNN)Spatial As Deep: Spatial CNN for Traffic Scene Understanding
+
+简述
+
+论文提出了一个新颖网络Spatial CNN，在图片的行和列上做信息传递。
+
+可以有效的识别强先验结构的目标。(道路，墙，路灯等)
+
+论文提出了一个大型的车道检测数据集，用于进一步推动自动驾驶发展。
+
+[代码](https://github.com/XingangPan/SCNN)
+
+abstract
+
+CNN架构没有足够充分探索图像行和列上的空间关系能力。这些关系对于学习强先验形状的对象很重要，尤其是外观(图像像素)连贯性很弱。例如交通线，车道经常会被遮挡，或者压根就没在路上画车道线。如下图所示：
+
+![](http://owv7la1di.bkt.clouddn.com/blog/180316/F8Ae40dj22.png?imageslim)
+
+本文提出了Spatial CNN(CNN),它将传统的卷积层接层(layer-by-layer)的连接形式的转为feature map中片连片卷积(slice-by-slice)的形式，使得图中像素行和列之间能够传递信息。这特别适用于检测长距离连续形状的目标或大型目标，有着极强的空间关系但是外观线索较差的目标，例如交通线，电线杆和墙。论文在车道检测挑战和CityScapes上评估了SCNN的表现，同时SCNN在TuSimple Benchmark lane Detection challenge获得了第一名，准确率为96.53%。
+
+网络结构：
+
+![](http://owv7la1di.bkt.clouddn.com/blog/180316/fc1jfk8j39.png?imageslim)
+
+(图中SCNN的下标有D,U,R,L，这在结构上是类似的，方向上分别表示为向下，向上，向右，向左)
+
+Conclusion
+
+论文提出了Spatial CNN，在空间层上实现信息的有效传递。SCNN易于融入到其他深度神经网络中做end-2-end训练。论文在车道检测和语义分割上测试了SCNN，结果表现SCNN可以有效的保持长距离连续结构，在语义分割其扩散效应对识别大型物体有利。
+
+此外，论文提出了一个车道检测的数据集，希望能够推动自动驾驶进一步发展。
