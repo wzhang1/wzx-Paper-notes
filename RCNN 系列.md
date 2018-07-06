@@ -221,3 +221,21 @@ Conclusion
 
 ![](https://img-blog.csdn.net/20170830153505641?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdqdW5oaXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
+
+[SSD](https://cjmcv.github.io/deeplearning-paper-notes/fdetect/2016/02/12/SSD.html)
+----
+
+Single Shot MultiBox Detector
+
+简述：
+
+在VGG16基础上，将最后将全连接层变成卷积层
+
+单一的深度神经网络用于检测多个类别的物体，可进行端到端的训练，速度比之前的single shot detectors（YOLO）快，准确率与Faster-RCNN相当，甚至对于低分辨率的图像也能取得不差的效果。而其核心在于使用应用于特征图上的小卷积滤波器进行物体类别与区域预测，如图1某层8 x 8大小的特征图，使用3 x 3的滑窗提取每个位置的特征，然后这个特征回归得到目标的坐标信息和类别信息。为了实现高检测率，在不同尺度的特征图上进行多尺度的预测，并根据长宽比来分离预测结果。
+
+![](https://cjmcv.github.io/deeplearning-paper-notes/images/pdDetect/ssd1.png)
+
+用特征图金子塔进行多尺度检测，在骨干网络后接几个卷积层，使输出特征图的尺度一层比一层小，形成多尺度的金字塔。金字塔上每个特征图都单独预测。最后将所有层的预测合并在一起做NMS。
+
+其中还提了一个先验框的概念，在金子塔上每层分别使用的多个先验框（数量不一定相等），具体方式与anchor相似，以滑动窗口扫描（conv3x3 pad1，则输出特征图与输入尺度不变），每点上会对应着在该点上各个先验框的类别信息和位置信息，存储在个通道上。如某层采用6个先验框，则对分类输出的特征图的通道数应为6x(20+1)=126，20是类别1为背景，即输入特征图每个点会得到1x1x126的特征向量来表示其分类信息。同理对定位输出的则为6x4=24。
+
