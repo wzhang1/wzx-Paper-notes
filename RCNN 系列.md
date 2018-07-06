@@ -214,3 +214,10 @@ Conclusion
 论文提出了Spatial CNN，在空间层上实现信息的有效传递。SCNN易于融入到其他深度神经网络中做end-2-end训练。论文在车道检测和语义分割上测试了SCNN，结果表现SCNN可以有效的保持长距离连续结构，在语义分割其扩散效应对识别大型物体有利。
 
 此外，论文提出了一个车道检测的数据集，希望能够推动自动驾驶进一步发展。
+
+[RON](https://blog.csdn.net/zhangjunhit/article/details/77717569)
+-----
+本文可以看作是对 SSD 的改进， SSD 对不同尺度特征图进行独立的检测，这里我们 reverse connection block 将相邻的特征图联系起来。同时使用 objectness prior 来有效降低目标的搜索空间。
+
+![](https://img-blog.csdn.net/20170830153505641?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdqdW5oaXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
