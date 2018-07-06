@@ -254,3 +254,27 @@ Single Shot MultiBox Detector
 
 ![](https://cjmcv.github.io/deeplearning-paper-notes/images/pdReg/lightencnn1.png)
 
+
+[FCN](https://zhuanlan.zhihu.com/p/22976342)
+----
+
+全卷积网络首现于这篇文章。这篇文章是将CNN结构应用到图像语义分割领域并取得突出结果的开山之作，因而拿到了CVPR 2015年的best paper honorable mention.
+
+图像语义分割，简而言之就是对一张图片上的所有像素点进行分类
+
+![](https://pic2.zhimg.com/80/v2-aec05f2f4b85238dc74724aeedbfc79b_hd.jpg)
+
+下面我们重点看一下FCN所用到的三种技术:
+
+1.卷积化(convolutionalization)
+
+
+
+分类所使用的网络通常会在最后连接全连接层，它会将原来二维的矩阵(图片)压缩成一维的，从而丢失了空间信息，最后训练输出一个标量，这就是我们的分类标签。
+
+而图像语义分割的输出则需要是个分割图，且不论尺寸大小，但是至少是二维的。所以，我们丢弃全连接层，换上卷积层，而这就是所谓的卷积化了。
+![](https://pic3.zhimg.com/80/v2-42d85c5f7ddcb3f527666b250f62f5d6_hd.jpg)
+
+这幅图显示了卷积化的过程,图中显示的是AlexNet的结构，简单来说卷积化就是将其最后三层全连接层全部替换成卷积层
+
+
