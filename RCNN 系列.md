@@ -239,3 +239,18 @@ Single Shot MultiBox Detector
 
 其中还提了一个先验框的概念，在金子塔上每层分别使用的多个先验框（数量不一定相等），具体方式与anchor相似，以滑动窗口扫描（conv3x3 pad1，则输出特征图与输入尺度不变），每点上会对应着在该点上各个先验框的类别信息和位置信息，存储在个通道上。如某层采用6个先验框，则对分类输出的特征图的通道数应为6x(20+1)=126，20是类别1为背景，即输入特征图每个点会得到1x1x126的特征向量来表示其分类信息。同理对定位输出的则为6x4=24。
 
+[Lighten CNN](https://cjmcv.github.io/deeplearning-paper-notes/freg/2015/12/16/LightenCNN.html)
+----
+
+提出一个轻量级的CNN网络结构，可在包含大量噪声的训练样本中训练人脸识别任务。
+
+在CNN的每层卷积层中引入了maxout激活概念，得到一个具有少量参数的Max-Feature-Map(MFM)。与ReLU通过阈值或偏置来抑制神经元的做法不同，MFM是通过竞争关系来抑制。不仅可以将噪声信号和有用信号分离开来，还可以在特征选择上起来关键作用。
+
+该网络基于MFM，有5个卷积层和4个Network in Network（NIN）层。小的卷积核与NIN是为了减少参数，提升性能。
+
+采用通过预训练模型的一种semantic bootstrapping的方法，提高模型在噪声样本中的稳定性。错误样本可以通过预测的概率被检测出来。
+
+实验证明该网络可以在包含大量噪声的训练样本中训练轻量级的模型，而单模型输出256维特征向量，在5个人脸测试集上达到state-of-art的效果。且在CPU上速度达到67ms。
+
+![](https://cjmcv.github.io/deeplearning-paper-notes/images/pdReg/lightencnn1.png)
+
