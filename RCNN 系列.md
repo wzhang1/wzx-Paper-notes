@@ -176,6 +176,43 @@ Experiments
 
 在VOC2007上的结果如下图所示，与Online Hard Example Mining（OHEM）相比，在VOC2007上文中结果（71.4%）比OHEM（69.9%）要好，但在VOC2012上文中结果（69.0%）比OHEM（69.8%）要稍低一点。作者认为这两种方法可以互补，实验中将两种方法联合，在VOC2012上可以达到71.7%；而两个OHEM模型联合为71.2%，两个文中的模型联合则为70.2%。
 
+
+[MASK RCNN](https://zhuanlan.zhihu.com/p/25954683)
+
+Mask R-CNN是一个小巧、灵活的通用对象实例分割框架（object instance segmentation）。
+
+它不仅可对图像中的目标进行检测，还可以对每一个目标给出一个高质量的分割结果。
+
+它在Faster R-CNN[1]基础之上进行扩展，并行地在bounding box recognition分支上添加一个用于预测目标掩模（object mask）的新分支。
+
+该网络还很容易扩展到其他任务中，比如估计人的姿势，也就是关键点识别（person keypoint detection）。该框架在COCO的一些列挑战任务重都取得了最好的结果，包括实例分割（instance segmentation）、候选框目标检测（bounding-box object detection）和人关键点检测（person keypoint detection）。
+
+![](https://pic1.zhimg.com/80/v2-7f92e9a39cae4786fbb4cd3d573eb972_hd.jpg)
+
+一共可以分为两个分支：
+
+（1）第一个分支为原始Faster R-CNN的结构，它用于对候选窗口进行分类和窗口坐标回归。
+
+（2）第二个分支对每一个感兴趣区域（Region of Interest，RoI）预测分割掩模，它利用了一个小的全卷积网络结构[2]（Fully Convolutional Network，FCN）。
+
+3 主要关键因素
+
+关键点1：解决特征图与原始图像上的RoI不对准问题（没懂）
+
+关键点2：将掩模预测和分类预测拆解
+
+简单来讲就是先用fast-rcnn找到感兴趣区域，然后用fcn预测该区域的掩模
+
+关键点3：掩模表示（没懂）
+
+一个掩模编码了一个输入对象的空间布局。作者使用了一个FCN来对每个RoI预测一个m\times m的掩模，这保留了空间结构信息。
+
+
+
+
+
+
+
 YOLO
 ----
 
