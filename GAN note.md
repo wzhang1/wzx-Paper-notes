@@ -303,6 +303,9 @@ paper中使用的GAN的结构图，其实在这篇paper里面使用的GAN就是�
 
 [VAE]()
 ----
+
+[VAE实现代码（caffe）](https://github.com/cdoersch/vae_tutorial)
+
 生成模型和判别模型组合的另一个套路——Variational autoencoder，简称VAE。
 
 ![](https://pic3.zhimg.com/80/v2-42e6db06401f563ad5cce49eb2a56d67_hd.jpg)
