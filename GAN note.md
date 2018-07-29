@@ -376,3 +376,7 @@ mini-batch中一半的数据是伪数据，这个先验会带来不合逻辑的�
 相对均值标准GAN（RaSGAN）的判别器：
 
 ![](https://pic1.zhimg.com/80/v2-aab4b1b5ea5b38fea18a36a7aca13828_hd.jpg)
+
+![](https://pic1.zhimg.com/80/v2-1af077c56baef833c9b2ad0c1e94ef3b_hd.jpg)
+
+可以发现，在无需额外计算成本的前提下，相对的判别器显著提高了数据的质量和稳定性，而且比现有GAN效果更好
