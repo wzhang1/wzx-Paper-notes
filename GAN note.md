@@ -10,6 +10,8 @@
 
 [pytorch-CycleGAN-and-pix2pix代码](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
 
+[GAN论文汇总（含代码）](https://github.com/zhangqianhui/AdversarialNetsPapers)
+
 
 Abstract
 
