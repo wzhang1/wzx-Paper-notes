@@ -344,8 +344,10 @@ KL散度的公式为：
 KL(p||q)=\int{p(x)log{\frac{p(x)}{q(x)}}dx}，这个是连续概率分布的公式
 
 
-[Rasgan](https://zhuanlan.zhihu.com/p/39050343)
+[Ragan](https://zhuanlan.zhihu.com/p/39050343)
 ----
+
+[RaGan代码](https://github.com/AlexiaJM/RelativisticGAN)
 
 在论文中，她指出现有的标准GAN（SGAN）还缺少一个基本属性，即训练生成器时，我们不仅应该提高伪数据是真实数据的概率，还应该降低实际数据是真实数据的概率。这个属性是一个重要基础，它也是所有GAN都应该遵守的。
 
