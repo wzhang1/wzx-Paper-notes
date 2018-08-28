@@ -399,3 +399,11 @@ BEGAN（边界均衡生成对抗网络）(https://zhuanlan.zhihu.com/p/26394806)
 
 
 [code](https://github.com/Heumi/BEGAN-tensorflow)
+
+
+TPGAN(侧脸生成正脸)(https://github.com/Heumi/BEGAN-tensorflow)
+----
+
+[code](https://github.com/HRLTY/TP-GAN)
+
+
