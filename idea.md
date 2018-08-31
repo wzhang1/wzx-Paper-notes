@@ -1,5 +1,9 @@
 1.可变型卷积核(效果更好，计算量更小)
 
+项目地址：https://github.com/msracver/Deformable-ConvNets
+
+论文地址：https://arxiv.org/abs/1703.06211
+
 2.Mobilenet V2（体积小，性能好,使用了DW卷积）
 
 3.二值化神经网络(减少存储空间)
