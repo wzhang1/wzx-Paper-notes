@@ -2,6 +2,8 @@
 
 项目地址：https://github.com/msracver/Deformable-ConvNets
 
+新闻地址附使用方法:http://www.sohu.com/a/138675188_465975
+
 论文地址：https://arxiv.org/abs/1703.06211
 
 2.Mobilenet V2（体积小，性能好,使用了DW卷积）
