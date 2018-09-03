@@ -36,3 +36,6 @@ densely connection，使每一层都融合上其它层的特征输出（DenseNet
 
 
 mobilenet-ssd 换成 mobilenet yolo 并对mobilenet进行优化 （https://www.jianshu.com/p/681960b4173d?from=groupmessage）
+
+
+mobilenet yolo (https://github.com/zunzhumu/darknet-mobilenet)这个是权重把它替换进https://github.com/qqwweee/keras-yolo3 里面的配置文件
