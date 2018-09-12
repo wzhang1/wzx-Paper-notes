@@ -40,7 +40,16 @@ SCNN :特殊卷积核，有助于提升空间信息
 
 使用DCGAN将道路图变得更加完善，把遮挡什么的都去掉，但是用处没有想到
 
+或者用激光数据和图像数据共同训练神经网络，，检测道路
+
 mobilenet-ssd 换成 mobilenet yolo 并对mobilenet进行优化 （https://www.jianshu.com/p/681960b4173d?from=groupmessage）
 
 
 mobilenet yolo (https://github.com/zunzhumu/darknet-mobilenet)这个是权重把它替换进https://github.com/qqwweee/keras-yolo3 里面的配置文件
+
+SSGAN:半监督对抗神经网络
+将真实数据与生成数据拼接后扔去鉴别器
+
+[](https://github.com/XinyuGong/SSGAN-Tensorflow)
+
+![](https://github.com/XinyuGong/SSGAN-Tensorflow/raw/master/figure/ssgan.png)
