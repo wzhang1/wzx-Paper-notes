@@ -44,6 +44,8 @@ SCNN :特殊卷积核，有助于提升空间信息
 
 或者用激光数据和图像数据共同训练神经网络，，检测道路
 
+神经网络检测道路遮挡
+
 mobilenet-ssd 换成 mobilenet yolo 并对mobilenet进行优化 （https://www.jianshu.com/p/681960b4173d?from=groupmessage）
 
 
