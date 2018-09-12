@@ -12,6 +12,7 @@
 
 [GAN论文汇总（含代码）](https://github.com/zhangqianhui/AdversarialNetsPapers)
 
+[各种GAN结构（笔记）](https://blog.csdn.net/u012969412/article/details/79135848)
 
 Abstract
 
