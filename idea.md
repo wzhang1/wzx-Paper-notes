@@ -40,6 +40,8 @@ SCNN :特殊卷积核，有助于提升空间信息
 
 使用DCGAN将道路图变得更加完善，把遮挡什么的都去掉，但是用处没有想到
 
+根据道路蒙板生成道路图像
+
 或者用激光数据和图像数据共同训练神经网络，，检测道路
 
 mobilenet-ssd 换成 mobilenet yolo 并对mobilenet进行优化 （https://www.jianshu.com/p/681960b4173d?from=groupmessage）
