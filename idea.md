@@ -20,6 +20,7 @@
 单一尺寸卷积核用多尺寸卷积核代替；
 固定形状卷积核趋于使用可变形卷积核；
 使用1×1卷积核（bottleneck结构）。
+
 卷积层通道方面：
 
 标准卷积用depthwise卷积代替；
@@ -37,7 +38,7 @@ densely connection，使每一层都融合上其它层的特征输出（DenseNet
 
 SCNN :特殊卷积核，有助于提升空间信息
 
-使用DCGAN将道路图变得更加完善，把遮挡什么的都去掉
+使用DCGAN将道路图变得更加完善，把遮挡什么的都去掉，但是用处没有想到
 
 mobilenet-ssd 换成 mobilenet yolo 并对mobilenet进行优化 （https://www.jianshu.com/p/681960b4173d?from=groupmessage）
 
