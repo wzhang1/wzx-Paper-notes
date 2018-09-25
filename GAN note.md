@@ -439,3 +439,37 @@ TPGAN(侧脸生成正脸)(https://github.com/Heumi/BEGAN-tensorflow)
 
 （2）提出了两个层面的域适应策略（图像层面的域适应和特征层面的域适应），用于解决该问题。
 
+###### ETH Zurich提出利用对抗策略，解决目标检测的域适配问题
+
+![](http://static.extremevision.com.cn/donkey_df1e099a-f9cd-4dc7-895a-823e2a527863.jpg)
+
+域适配（Domain Adaptation, DA）问题已经在图像分类任务上得到了广泛研究并取得了惊人进展，今年CVPR上也有很多相关工作。其本质属于迁移学习的一种，问题设定是：如何使得源域（Source Domain）上训练好的分类器能够很好地迁移到没有标签数据的目标域上（Target Domain）上。
+
+其中两个代表性的工作有：DSN [1]和ADDA [2]。
+
+解决思路
+
+本文首先从概率分布的角度论证了进行域适配的必要性，据此引出了本文的两点贡献：
+
+提出图像层面的适配（Image-Level Adaptation）和目标层面的适配（Instance-Level Adaptation），
+
+用于解决自动驾驶场景下目标检测任务使用不同数据训练的域适配问题。
+
+![](http://static.extremevision.com.cn/donkey_cfdfc97f-8e2c-4466-a772-6e16389b62b6.jpg)
+
+图2给出了本文方法的处理流程，检测器采用的是当前主流的Faster R-CNN，训练时一个batch包含两张图像，分别来自源域和目标域，所以网络的输入实际上是两张图像（图中只画了一张）。
+
+结合图2， 
+
+下面重点论述下本文是所采用的两个层面的域适配：
+
+1、Image-Level Adaptation
+
+源域的图像是有标签的，而目标域的图像是无标签的，如果只用源域的图像进行训练，会使得网络学到的特征在源域上非常discriminative，但在目标域上表现欠佳，所以应该做图像层面上的适配，也即使得来自源域的图像特征和来自目标域的图像特征满足同一分布，这里可以采用图2中的Image-level domain classifier，如果使得domain classifier无法区分开特征图到底是来自源域还是来自目标域，那么我们的目的就达到了，而在训练过程中domain classifier则是要尽量把二者区分开，其实这里体现的就是GAN中的对抗策略了，只不过作者用的并不是当前火热的GAN，而是通过文献[3]提出的gradient reverse layer实现的
+
+
+2、Instance-Level Adaptation
+
+同样，我们还需要目标层面的适配，也就是每个ROI的特征也要满足同一分布，同上面的对抗策略一致
+
+
