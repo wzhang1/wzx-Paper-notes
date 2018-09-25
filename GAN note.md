@@ -408,3 +408,34 @@ TPGAN(侧脸生成正脸)(https://github.com/Heumi/BEGAN-tensorflow)
 [code](https://github.com/HRLTY/TP-GAN)
 
 
+
+###### Fully convolutional adaptation networks for semantic segmentation 无监督语义分割之全卷积域适应网络
+
+为了获得像素级语义分割数据集，该文作者设计一网络，从游戏引擎获取语义分割图像，并处理使其能够用于真实世界的语义分割训练。
+
+
+解决思路
+
+针对合成图像和真实图像之间的域适应问题，本文主要提出了两种域适应策略，
+
+分别是图像层面的域适应（Appearance Adaptation）和特征表示层面的域适应（Representation Adaptation），
+
+具体实现为两个网络架构：图像域适应网络（Appearance Adaptation Networks，AAN)和特征适应网络（Representation Adaptation Networks，RAN)。
+
+整体网络架构如下图所示：
+
+
+![](http://static.extremevision.com.cn/donkey_7ccb8394-0fce-43d3-b4b1-1a22d441be9b.jpg)
+
+![](http://static.extremevision.com.cn/donkey_26b72371-ef26-4286-90c3-970b42720b61.jpg)
+
+![](http://static.extremevision.com.cn/donkey_9c36f782-2cf1-4599-a6c0-a7a928f7cc1f.jpg)
+
+总结展望
+
+本文贡献：
+
+（1）提出了语义分割任务中的域适应问题：如何利用合成数据有效提升真实场景中的语义分割性能；
+
+（2）提出了两个层面的域适应策略（图像层面的域适应和特征层面的域适应），用于解决该问题。
+
