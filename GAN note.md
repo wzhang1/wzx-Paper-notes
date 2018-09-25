@@ -441,6 +441,8 @@ TPGAN(侧脸生成正脸)(https://github.com/Heumi/BEGAN-tensorflow)
 
 ###### ETH Zurich提出利用对抗策略，解决目标检测的域适配问题
 
+简而言之：使用对抗神经网络，将另一数据集的图像转换为和目标数据集近似的图像
+
 ![](http://static.extremevision.com.cn/donkey_df1e099a-f9cd-4dc7-895a-823e2a527863.jpg)
 
 域适配（Domain Adaptation, DA）问题已经在图像分类任务上得到了广泛研究并取得了惊人进展，今年CVPR上也有很多相关工作。其本质属于迁移学习的一种，问题设定是：如何使得源域（Source Domain）上训练好的分类器能够很好地迁移到没有标签数据的目标域上（Target Domain）上。
