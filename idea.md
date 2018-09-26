@@ -110,5 +110,5 @@ Adversarial Discriminative Domain Adaption
 
 使用一个domain二分类器（简单的全连接神经网络）将获取的特征进行分类，然后定义一个domain confusing loss，通过优化特征提取让该domain二分类器分辨不出他们来。
 
-![](https://img-blog.csdn.net/20170621102331479?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjkzODEyOTk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![](https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/ADDA1.png)
 
