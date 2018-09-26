@@ -112,3 +112,10 @@ Adversarial Discriminative Domain Adaption
 
 ![](https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/ADDA1.png)
 
+CVPR 2018 | ETH Zurich提出新型网络「ROAD-Net」，解决语义分割域适配问题
+
+本文研究的是无人驾驶场景中的语义分割问题。语义分割的样本标记成本很高，使用合成数据能帮助解决样本不足问题。但是合成的数据和真实的数据之间存在差异，这种差异会极大影响使用合成数据训练的模型在真实数据上的表现。
+
+本文研究难点在于如何处理合成数据和真实数据之间的差异
+
+![](http://static.extremevision.com.cn/donkey_fd09081e-6d4e-47fc-a16c-8b3f69031f5b.jpg)
