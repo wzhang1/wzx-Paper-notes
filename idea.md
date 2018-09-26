@@ -119,3 +119,6 @@ CVPR 2018 | ETH Zurich提出新型网络「ROAD-Net」，解决语义分割域�
 本文研究难点在于如何处理合成数据和真实数据之间的差异
 
 ![](http://static.extremevision.com.cn/donkey_fd09081e-6d4e-47fc-a16c-8b3f69031f5b.jpg)
+
+
+![](http://static.extremevision.com.cn/donkey_9d76a7a3-884e-47e0-a0a7-8c8c8a74f74f.jpg)
