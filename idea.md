@@ -66,3 +66,49 @@ SSGAN:半监督对抗神经网络
 [](https://github.com/XinyuGong/SSGAN-Tensorflow)
 
 ![](https://github.com/XinyuGong/SSGAN-Tensorflow/raw/master/figure/ssgan.png)
+
+
+
+
+
+ETH Zurich提出利用对抗策略，解决目标检测的域适配问题
+----
+
+![](http://static.extremevision.com.cn/donkey_df1e099a-f9cd-4dc7-895a-823e2a527863.jpg)
+
+
+背景介绍
+
+基于有监督的目标检测器（如Faster R-CNN, SSD）在有标签数据集上（Pscal VOC, COCO等）取得了很好的性能。然而，一方面检测器的训练严重依赖大量有标签数据，在现实场景中这些有标签数据的获取代价是很大的。另一方面，在一个场景上训练的模型难以generalize到另一个场景中，例如在自动驾驶场景下，当遇到没有标签数据的新场景时，如何使得旧场景上训好的模型在新场景上也有很好的表现？
+
+域适配（Domain Adaptation, DA）问题已经在图像分类任务上得到了广泛研究并取得了惊人进展，今年CVPR上也有很多相关工作。其本质属于迁移学习的一种，问题设定是：如何使得源域（Source Domain）上训练好的分类器能够很好地迁移到没有标签数据的目标域上（Target Domain）上。
+
+其中两个代表性的工作有：DSN [1]和ADDA [2]。
+
+本文的两点贡献：
+
+提出图像层面的适配（Image-Level Adaptation）和目标层面的适配（Instance-Level Adaptation），
+
+用于解决自动驾驶场景下目标检测任务使用不同数据训练的域适配问题。
+
+[代码](https://github.com/yuhuayc/da-faster-rcnn)
+
+
+CoGAN:
+
+[code](https://github.com/andrewliao11/CoGAN-tensorflow)
+
+文章的思想是,利用网络层的权重共享约束,训练GAN网络.模型包括两个生成网络,两个判别网络,
+
+![](https://github.com/andrewliao11/CoGAN-tensorflow/raw/master/asset/network.png?raw=true)
+
+ADDA:
+
+Adversarial Discriminative Domain Adaption 
+
+文章利用GAN网络的思想用于cross-domain识别
+
+使用一个domain二分类器（简单的全连接神经网络）将获取的特征进行分类，然后定义一个domain confusing loss，通过优化特征提取让该domain二分类器分辨不出他们来。
+
+![](https://img-blog.csdn.net/20170621102331479?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjkzODEyOTk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
