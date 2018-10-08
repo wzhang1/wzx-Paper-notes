@@ -25,6 +25,8 @@ tensorflow-gpu v1.3.0 | cuda8.0 |  cuDNN 6.0 |
 
 1.gt_imgs = [tmp - VGG_MEAN for tmp in gt_imgs]  ：为什么要减掉这个值
 
+试验后：去掉这句话后，训练和测试准确率大降
+
 
 
 主干：本机上代码由于所有代码都放进了tools里面，故，结构与原网页不同
