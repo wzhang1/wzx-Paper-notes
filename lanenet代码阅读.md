@@ -39,6 +39,7 @@ def init_args: 输入并储存 数据集地址、网络类型、预训练权重
 def train_net:
 
 设置变量{
+
         训练数据
 
         验证数据
@@ -88,11 +89,12 @@ with sess.as_default():创建神经网络会话
         
         加载vgg权重
         
-        }
+  }
         
         
-        for 轮训练
+ for 轮训练
         {
+        
            读图并resize：
            
            gt_imgs :原图
