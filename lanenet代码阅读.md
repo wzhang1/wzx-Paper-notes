@@ -21,7 +21,12 @@ python train_lanenet.py --net enet --dataset_dir data/training_data_example/
 
 python test_lanenet.py --is_batch False --batch_size 1 --weights_path model/culane_lanenet/culane_lanenet_vgg_2018-10-09-09-10-01.ckpt-2000 --image_path data/tusimple_test_image/0.jpg
 
+python train_lanenet_wzxtest.py --net enet --dataset_dir data/training_data_example/ --weights_path model/culane_lanenet/culane_lanenet_1_enet_2018-10-09-10-56-16.ckpt-7200
+
 tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenetwzx/lanenet-lane-detection-master/tboard/culane_lanenet/enet
+
+
+
 
 项目进展记录：
 ------------------------
@@ -37,6 +42,11 @@ tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenetwzx/lanenet-lane-detecti
 
 试验后：去掉这句话后，训练和测试准确率大降
 
+2.test 模块，enet的test不能用，其主要语句在
+ net = lanenet_merge_model.LaneNet(phase=phase_tensor, net_flag='vgg')
+ 但是换成enet之后不可用
+ 
+ 
 
 
 主干：本机上代码由于所有代码都放进了tools里面，故，结构与原网页不同
