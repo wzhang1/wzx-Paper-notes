@@ -15,9 +15,11 @@ tensorflow-gpu v1.3.0 | cuda8.0 |  cuDNN 6.0 |
 运行命令：
 ----------
 
-python tools/train_lanenet.py --net enet --dataset_dir data/training_data_example/
+python train_lanenet.py --net vgg --dataset_dir data/training_data_example/
 
-tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenet-lane-detection-master/tboard/culane_lanenet/enet
+python train_lanenet.py --net enet --dataset_dir data/training_data_example/
+
+tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenetwzx/lanenet-lane-detection-master/tboard/culane_lanenet/enet
 
 项目进展记录：
 ------------------------
