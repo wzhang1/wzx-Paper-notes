@@ -35,6 +35,10 @@ tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenetwzx/lanenet-lane-detecti
 
 初步确认输入没问题 通过test input 代码在 train_lanenet_wzxtest.py
 
+单支训练左边分支效果很好，下一步，增加训练集增强其泛化能力、研究其能预测到被遮挡车道线的原因、对结构进行优化，加速或加残差。
+
+
+
 
 
 问题：
@@ -48,7 +52,7 @@ tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenetwzx/lanenet-lane-detecti
  net = lanenet_merge_model.LaneNet(phase=phase_tensor, net_flag='vgg')
  但是换成enet之后不可用
  
- 
+3.为什么enet能预测到被遮挡的车道线?
 
 
 主干：本机上代码由于所有代码都放进了tools里面，故，结构与原网页不同
