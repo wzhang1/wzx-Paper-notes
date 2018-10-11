@@ -27,6 +27,9 @@ python readtest.py --net enet --dataset_dir testdata --weights_path model/culane
 
 tensorboard --logdir=/media/wzx/AE5A299C5A2961F7/lanenetwzx/lanenet-lane-detection-master/tboard/culane_lanenet/enet
 
+python readtest2.py --net enet --dataset_dir testdata --weights_path model/culane_lanenet/culane_lanenet_enet_2018-10-09-18-07-49.ckpt-64800
+
+
 
 
 
