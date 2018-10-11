@@ -40,7 +40,13 @@ python readtest2.py --net enet --dataset_dir testdata --weights_path model/culan
 
 单支训练左边分支效果很好，下一步，增加训练集增强其泛化能力、研究其能预测到被遮挡车道线的原因、对结构进行优化，加速或加残差。
 
+初步运行调试成功进入测试环节
 
+测试结果:
+
+![](https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/43.png)
+
+！【】（https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/530.png）
 
 
 
