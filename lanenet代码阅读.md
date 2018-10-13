@@ -46,7 +46,7 @@ python readtest2.py --net enet --dataset_dir testdata --weights_path model/culan
 
 ![](https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/43.png)
 
-！【】（https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/530.png）
+![]（https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/530.png）
 
 
 
