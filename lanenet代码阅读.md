@@ -63,6 +63,18 @@ python readtest2.py --net enet --dataset_dir testdata --weights_path model/culan
  
 3.为什么enet能预测到被遮挡的车道线?
 
+为了构建GT分割图，我们将每天车道线的对应像素连成线，这么做的好处是即使车道线被遮挡了，网络仍能预测车道位置。
+
+4.lanenet是先分割再聚类？
+
+
+5.densenet是什么
+
+DenseNet提出了一个更激进的密集连接机制：即互相连接所有的层，具体来说就是每个层都会接受其前面所有层作为其额外的输入。
+
+![](https://upload-images.jianshu.io/upload_images/11692737-7b1b6ef5b02ec02b?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+
+
 
 主干：本机上代码由于所有代码都放进了tools里面，故，结构与原网页不同
 -----------------------------------------------------------
