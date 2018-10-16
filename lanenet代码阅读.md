@@ -49,6 +49,14 @@ python readtest2.py --net enet --dataset_dir testdata --weights_path model/culan
 ![](https://github.com/greenfishflying/wzx-Paper-notes/blob/master/image/530.png)
 
 
+正在增加训练集对模型的泛化能力进行提升
+
+数据扩增：添加高斯噪声，色彩饱和度等扩增，弯道，左右翻转（还没做）
+
+
+
+
+
 
 问题：
 -----------------------------
