@@ -53,9 +53,56 @@ python readtest2.py --net enet --dataset_dir testdata --weights_path model/culan
 
 数据扩增：添加高斯噪声，色彩饱和度等扩增，弯道，左右翻转（还没做）
 
+通过阅读代码和论文发现：
+
+lannet左右分支结构一样，都是Enet，若只单独训练一个分支，则就是enet。
+
+故，开始进行Enet的研究：
+----------------------------------------------------
+
+1、尝试跑起Enet（未完成）
+
+2、优化Enet（未开始）
+
+[ENet论文解读](https://zhuanlan.zhihu.com/p/33536330)
+
+[ENet阅读笔记](https://zhuanlan.zhihu.com/p/31379024)
 
 
 
+###### 激活函数：
+
+[生动形象的解释激活函数](https://zhuanlan.zhihu.com/p/25279356)
+
+![](http://p0.ifengimg.com/pmop/2017/0701/C56E5C6FCBB36E70BA5EBC90CBD142BA320B3DF6_size19_w740_h217.jpeg)
+
+relu:
+
+缺点：容易die ：当一个大的梯度流过某神经元将其值变为负数，其这个神经元就会被relu置为0，永远死掉无法更新了。
+
+leakly relu:
+
+优点：不会死掉
+
+PRelu:
+
+yi=max(0,xi)+ai×min(0,xi)
+
+ai 很小时，是leakly relu， ai为0时，是relu
+
+y优点：ai值可以训练
+
+RRelu：
+
+yi=max(0,xi)+ai×min(0,xi)
+
+ai值随机
+
+###### 批标准化BN：
+
+[批标准化为什么效果好](https://www.zhihu.com/question/38102762)
+
+BN本质上解决的是反向传播过程中的梯度问题。
 
 
 问题：
