@@ -19,6 +19,8 @@ python train_lanenet.py --net vgg --dataset_dir data/training_data_example/
 
 python train_lanenet.py --net enet --dataset_dir data/training_data_example/
 
+python train_jingjian.py --net enet --dataset_dir data/training_data_example/
+
 python test_lanenet.py --is_batch False --batch_size 1 --weights_path model/culane_lanenet/culane_lanenet_vgg_2018-10-09-09-10-01.ckpt-2000 --image_path data/tusimple_test_image/0.jpg
 
 python train_lanenet_wzxtest.py --net enet --dataset_dir data/training_data_example/ --weights_path model/culane_lanenet/culane_lanenet_1_enet_2018-10-09-10-56-16.ckpt-7200
